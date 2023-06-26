@@ -25,7 +25,7 @@ class RemoteFeedLoaderTests: XCTestCase {
 
         // Act or When
         // "When we invoke`sut.load()`"
-        sut.load()
+        sut.load { _ in }
 
         // Assert or Then
         // Then assert that a URL request was initiated in the client.
@@ -41,8 +41,8 @@ class RemoteFeedLoaderTests: XCTestCase {
 
         // Act or When
         // "When we invoke`sut.load()` twice"
-        sut.load()
-        sut.load()
+        sut.load { _ in }
+        sut.load { _ in }
 
         // Assert or Then
         // Then assert that a URL request was initiated in the client.
