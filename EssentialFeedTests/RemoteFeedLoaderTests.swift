@@ -105,13 +105,13 @@ class RemoteFeedLoaderTests: XCTestCase {
                         when action: () -> Void,
                         file: StaticString = #filePath,
                         line: UInt = #line) {
-        var capturedErrors = [RemoteFeedLoader.Error]()
+        var capturedErrors = [RemoteFeedLoader.Result]()
         sut.load { capturedErrors.append($0) }
 
         action()
 
         XCTAssertEqual(capturedErrors,
-                       [error],
+                       [.failure(error)],
                        file: file,
                        line: line)
     }
@@ -138,7 +138,6 @@ class RemoteFeedLoaderTests: XCTestCase {
                 httpVersion: nil,
                 headerFields: nil
             )!
-            
             messages[index].completion(.success(data, response))
         }
     }
