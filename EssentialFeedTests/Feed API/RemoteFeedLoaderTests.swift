@@ -168,6 +168,13 @@ class RemoteFeedLoaderTests: XCTestCase {
         }
     }
     
+    /// Make the Feed Item
+    /// - Parameters:
+    ///   - id: The id of the feed
+    ///   - description: An optional description of the feed. Defaults to `nil`
+    ///   - location: An optional location. Defaults to `nil`
+    ///   - imageURL: The image url of the feed to be displayed.
+    /// - Returns: A tuple of FeedItem model and dictionary representation of JSON.
     private func makeItem(id: UUID,
                           description: String? = nil,
                           location: String? = nil,
@@ -201,6 +208,13 @@ class RemoteFeedLoaderTests: XCTestCase {
         return try! JSONSerialization.data(withJSONObject: json)
     }
     
+    /// The expected method that takes the SUT, and completing it with an expected result when an action is taken.
+    /// - Parameters:
+    ///   - sut: The system under test in the Feed  feature domain.
+    ///   - expectedResult: The expected result that is used in asserting.
+    ///   - action: The action taken under the test condition.
+    ///   - file: The file path where this code is ran.
+    ///   - line: The line where the error is thrown.
     private func expect(_ sut: RemoteFeedLoader,
                         toCompleteWith expectedResult: RemoteFeedLoader.Result,
                         when action: () -> Void,
