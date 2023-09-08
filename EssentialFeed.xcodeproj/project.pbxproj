@@ -14,6 +14,7 @@
 		438C819B2A29016D0034089A /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438C819A2A29016D0034089A /* FeedLoader.swift */; };
 		9B24E1742A9E13A800E55B99 /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B24E1732A9E13A800E55B99 /* FeedItemsMapper.swift */; };
 		9B24E1762A9FCAB600E55B99 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B24E1752A9FCAB600E55B99 /* HTTPClient.swift */; };
+		9B73B0562AABB15500B5F6B1 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73B0552AABB15500B5F6B1 /* URLSessionHTTPClientTests.swift */; };
 		9B86111E2A3BCCDB005AB45C /* RemoteFeedLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86111D2A3BCCDB005AB45C /* RemoteFeedLoaderTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		438C819A2A29016D0034089A /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
 		9B24E1732A9E13A800E55B99 /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
 		9B24E1752A9FCAB600E55B99 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		9B73B0552AABB15500B5F6B1 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 		9B86111D2A3BCCDB005AB45C /* RemoteFeedLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoaderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				9B86111D2A3BCCDB005AB45C /* RemoteFeedLoaderTests.swift */,
+				9B73B0552AABB15500B5F6B1 /* URLSessionHTTPClientTests.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B86111E2A3BCCDB005AB45C /* RemoteFeedLoaderTests.swift in Sources */,
+				9B73B0562AABB15500B5F6B1 /* URLSessionHTTPClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
