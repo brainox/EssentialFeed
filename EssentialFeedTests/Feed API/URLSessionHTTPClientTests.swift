@@ -21,21 +21,6 @@ class URLSessionHTTPClent {
 
 class URLSessionHTTPClientTests: XCTestCase {
     
-    func test_getFromURL_creaesDataTaskWithURL() {
-        // Arrange (setup)
-        let url = URL(string: "http://any-url.com")!
-        let session = URLSessionSpy()
-        let sut = URLSessionHTTPClent(session: session)
-
-        // Act
-        // `get` is invoked with the url.
-        sut.get(from: url)
-        
-        // Assert (Expectation)
-        // Expect SUT to create a dataTask from the session with the received URL
-        XCTAssertEqual(session.receivedURLs, [url])
-    }
-    
     func test_getFromURL_resumesDataTaskWithURL() {
         // Arrange (setup)
         let url = URL(string: "http://any-url.com")!
@@ -48,8 +33,7 @@ class URLSessionHTTPClientTests: XCTestCase {
         // `get` is invoked with the url.
         sut.get(from: url)
         
-        // Assert (Expectation)
-        // Expect SUT to create a dataTask from the session with the received URL
+        // Expect task to call resume we invoke the get method with the right URL.
         XCTAssertEqual(task.resumeCallCount, 1)
     }
     
@@ -57,7 +41,6 @@ class URLSessionHTTPClientTests: XCTestCase {
     
     private class URLSessionSpy: URLSession {
         
-        var receivedURLs = [URL]()
         private var stubs = [URL: URLSessionDataTask]()
         
         func stub(url: URL, task: URLSessionDataTask) {
@@ -70,7 +53,6 @@ class URLSessionHTTPClientTests: XCTestCase {
         ///   - completionHandler: The completion handler that is called after the request have completed.
         /// - Returns: A mock implementation of the dataTask.
         override func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
-            receivedURLs.append(url)
             return stubs[url] ?? FakeURLSessionDataTask()
         }
     }
