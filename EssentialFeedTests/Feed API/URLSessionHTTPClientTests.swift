@@ -15,9 +15,7 @@ class URLSessionHTTPClent {
     }
     
     func get(from url: URL) {
-        session.dataTask(with: url) { _, _, _ in
-            
-        }
+        session.dataTask(with: url) { _, _, _ in }.resume()
     }
 }
 
@@ -38,11 +36,33 @@ class URLSessionHTTPClientTests: XCTestCase {
         XCTAssertEqual(session.receivedURLs, [url])
     }
     
+    func test_getFromURL_resumesDataTaskWithURL() {
+        // Arrange (setup)
+        let url = URL(string: "http://any-url.com")!
+        let session = URLSessionSpy()
+        let task = URLSessionDataTaskSpy()
+        session.stub(url: url, task: task)
+        let sut = URLSessionHTTPClent(session: session)
+
+        // Act
+        // `get` is invoked with the url.
+        sut.get(from: url)
+        
+        // Assert (Expectation)
+        // Expect SUT to create a dataTask from the session with the received URL
+        XCTAssertEqual(task.resumeCallCount, 1)
+    }
+    
     // MARK: - Helpers
     
     private class URLSessionSpy: URLSession {
         
         var receivedURLs = [URL]()
+        private var stubs = [URL: URLSessionDataTask]()
+        
+        func stub(url: URL, task: URLSessionDataTask) {
+            stubs[url] = task
+        }
         
         /// Everytime we invoke the dataTask(with urL: ), we capture the URL in the receivedURLs array.
         /// - Parameters:
@@ -51,11 +71,21 @@ class URLSessionHTTPClientTests: XCTestCase {
         /// - Returns: A mock implementation of the dataTask.
         override func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
             receivedURLs.append(url)
-            return FakeURLSessionDataTask()
+            return stubs[url] ?? FakeURLSessionDataTask()
         }
     }
     
-    private class FakeURLSessionDataTask: URLSessionDataTask {}
+    private class FakeURLSessionDataTask: URLSessionDataTask {
+        override func resume() {}
+    }
+    
+    private class URLSessionDataTaskSpy: URLSessionDataTask {
+        var resumeCallCount = 0
+        
+        override func resume() {
+            resumeCallCount += 1
+        }
+    }
 }
 
 
