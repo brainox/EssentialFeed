@@ -51,7 +51,7 @@ class URLSessionHTTPClientTests: XCTestCase {
         /// - Parameters:
         ///   - url: The url we pass into the data task.
         ///   - completionHandler: The completion handler that is called after the request have completed.
-        /// - Returns: A mock implementation of the dataTask...
+        /// - Returns: A mock implementation of the dataTask.
         override func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
             return stubs[url] ?? FakeURLSessionDataTask()
         }
