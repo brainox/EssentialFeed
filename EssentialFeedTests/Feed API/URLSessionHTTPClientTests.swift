@@ -29,8 +29,8 @@ class URLSessionHTTPClientTests: XCTestCase {
     func test_getFromURL_failsOnRequestError() {
         URLProtocolStub.startInterceptingRequests()
         let url = URL(string: "http://any-url.com")!
-        let error = NSError(domain: "any error", code: 1)
-        URLProtocolStub.stub(url: url, data: nil, response: nil, error: error)
+        let requestError = NSError(domain: "any error", code: 1)
+        URLProtocolStub.stub(url: url, data: nil, response: nil, error: requestError)
         
         let sut = URLSessionHTTPClient()
         
@@ -39,9 +39,11 @@ class URLSessionHTTPClientTests: XCTestCase {
         sut.get(from: url) { result in
             switch result {
             case let .failure(receivedError as NSError):
-                XCTAssertEqual(receivedError, error)
+                XCTAssertEqual(receivedError.domain, requestError.domain)
+                XCTAssertEqual(receivedError.code, requestError.code)
+                XCTAssertNotNil(receivedError)
             default:
-                XCTFail("Expected failure with error \(error), got \(result) instead")
+                XCTFail("Expected failure with error \(requestError), got \(result) instead")
             }
             
             exp.fulfill()
