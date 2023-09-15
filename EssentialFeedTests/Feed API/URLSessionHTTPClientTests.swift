@@ -77,6 +77,8 @@ class URLSessionHTTPClientTests: XCTestCase {
             stubs = [:]
         }
         
+        // MARK: - Class Request Methods
+        
         override class func canInit(with request: URLRequest) -> Bool {
             guard let url = request.url else { return false }
             
@@ -86,6 +88,8 @@ class URLSessionHTTPClientTests: XCTestCase {
         override class func canonicalRequest(for request: URLRequest) -> URLRequest {
             return request
         }
+        
+        // MARK: - Loading Methods
         
         override func startLoading() {
             guard let url = request.url, let stub = URLProtocolStub.stubs[url] else { return }
