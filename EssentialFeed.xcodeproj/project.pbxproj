@@ -41,6 +41,7 @@
 		9B24E1752A9FCAB600E55B99 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		9B6DE3032AB7CFAC002249DD /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		9B6DE3052AB7EDC9002249DD /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
+		9B6DE3672AB9A3F2002249DD /* EssentialFeed.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialFeed.xctestplan; sourceTree = "<group>"; };
 		9B73B0552AABB15500B5F6B1 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 		9B86111D2A3BCCDB005AB45C /* RemoteFeedLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoaderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +79,7 @@
 		438C81762A2900250034089A = {
 			isa = PBXGroup;
 			children = (
+				9B6DE3672AB9A3F2002249DD /* EssentialFeed.xctestplan */,
 				438C81822A2900250034089A /* EssentialFeed */,
 				438C818C2A2900260034089A /* EssentialFeedTests */,
 				438C81812A2900250034089A /* Products */,
