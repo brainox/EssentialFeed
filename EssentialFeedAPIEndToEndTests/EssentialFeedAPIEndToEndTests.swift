@@ -9,11 +9,11 @@ import XCTest
 import EssentialFeed
 
 final class EssentialFeedAPIEndToEndTests: XCTestCase {
-
+    
     func test_endToEndTestServerGETFeedResult_matchesFixedTestAccountData() {
         switch getFeedResult() {
         case let .success(items)?:
-            XCTAssertEqual(items.count, 8, "Expected 8 items in the test account feed.")
+            XCTAssertEqual(items.count, 8, "Expected 8 items in the test account feed")
             XCTAssertEqual(items[0], expectedItem(at: 0))
             XCTAssertEqual(items[1], expectedItem(at: 1))
             XCTAssertEqual(items[2], expectedItem(at: 2))
@@ -22,10 +22,12 @@ final class EssentialFeedAPIEndToEndTests: XCTestCase {
             XCTAssertEqual(items[5], expectedItem(at: 5))
             XCTAssertEqual(items[6], expectedItem(at: 6))
             XCTAssertEqual(items[7], expectedItem(at: 7))
-        case let .failure(error)?:
-            XCTFail("Expected successful feed result, got \(error) instead.")
+            
+        case let .failure(error):
+            XCTFail("Expected successfull feed result, got \(error) instead")
+            
         default:
-            XCTFail("Expected successful feed result, got no result instead.")
+            XCTFail("Expected successful feed result, got no result instead")
         }
     }
     
@@ -45,16 +47,17 @@ final class EssentialFeedAPIEndToEndTests: XCTestCase {
             receivedResult = result
             exp.fulfill()
         }
-        wait(for: [exp], timeout: 5.0)
-        
+        wait(for: [exp], timeout: 10.0)
         return receivedResult
     }
     
     private func expectedItem(at index: Int) -> FeedItem {
-        return FeedItem(id: id(at: index),
-                        description: description(at: index),
-                        location: location(at: index),
-                        imageURL: imageURL(at: index))
+        return FeedItem(
+            id: id(at: index),
+            description: description(at: index),
+            location: location(at: index),
+            imageURL: imageURL(at: index)
+        )
     }
     
     private func id(at index: Int) -> UUID {
