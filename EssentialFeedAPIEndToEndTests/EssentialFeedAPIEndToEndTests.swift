@@ -51,6 +51,9 @@ final class EssentialFeedAPIEndToEndTests: XCTestCase {
         return receivedResult
     }
     
+    /// The expected feed item from the server.
+    /// - Parameter index: The index of the item in the item list.
+    /// - Returns: The 'FeedItem'.
     private func expectedItem(at index: Int) -> FeedItem {
         return FeedItem(
             id: id(at: index),
