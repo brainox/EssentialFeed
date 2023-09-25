@@ -38,10 +38,10 @@ public struct FeedItem: Equatable {
      Initializes a new `FeedItem` instance.
      
      - Parameters:
-     - id: A universally unique identifier (UUID) representing the item.
-     - description: An optional description for the item. It can be `nil` if no description is provided.
-     - location: An optional location string indicating where the item was posted. It can be `nil` if no location is specified.
-     - imageURL: The URL pointing to the image associated with the item.
+        - id: A universally unique identifier (UUID) representing the item.
+        - description: An optional description for the item. It can be `nil` if no description is provided.
+        - location: An optional location string indicating where the item was posted. It can be `nil` if no location is specified.
+        - imageURL: The URL pointing to the image associated with the item.
      
      - Important: The `id` parameter must be a valid UUID.
      
