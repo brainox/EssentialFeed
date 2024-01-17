@@ -128,6 +128,7 @@ class CacheFeedUseCaseTests: XCTestCase {
     }
 
     func test_save_succeedsOnSuccessfulCacheInsertion() {
+
         let (sut, store) = makeSut()
 
         expect(sut, toCompleteWithError: nil) {
