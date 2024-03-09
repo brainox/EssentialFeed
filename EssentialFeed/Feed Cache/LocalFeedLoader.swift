@@ -30,7 +30,7 @@ public final class LocalFeedLoader {
     }
 }
 
-extension LocalFeedLoader: FeedLoader {
+extension LocalFeedLoader {
     
     public typealias SaveResult = Error?
     
@@ -46,7 +46,7 @@ extension LocalFeedLoader: FeedLoader {
     }
 }
     
-extension LocalFeedLoader {
+extension LocalFeedLoader: FeedLoader {
     
     public typealias LoadResult = LoadFeedResult
     
