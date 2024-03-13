@@ -10,7 +10,7 @@ import Foundation
 /**
  An enumeration representing the result of loading a feed.
  
- - `success`: Indicates a successful feed loading operation with an associated array of `FeedItem` instances.
+ - `success`: Indicates a successful feed loading operation with an associated array of `FeedImage` instances.
  - `failure`: Indicates a failure in the feed loading operation with an associated `Error`.
  
  Use this enumeration to convey the outcome of loading a feed in your application.
@@ -20,7 +20,7 @@ import Foundation
  */
 public enum LoadFeedResult {
     /// Indicates a successful feed loading operation with an associated array of `FeedItem` instances.
-    case success([FeedItem])
+    case success([FeedImage])
     
     /// Indicates a failure in the feed loading operation with an associated `Error`.
     case failure(Error)
