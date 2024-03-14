@@ -168,15 +168,15 @@ class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     ///   - description: An optional description of the feed. Defaults to `nil`
     ///   - location: An optional location. Defaults to `nil`
     ///   - imageURL: The image url of the feed to be displayed.
-    /// - Returns: A tuple of FeedItem model and dictionary representation of JSON.
+    /// - Returns: A tuple of FeedImage model and dictionary representation of JSON.
     private func makeItem(id: UUID,
                           description: String? = nil,
                           location: String? = nil,
-                          imageURL: URL) -> (model: FeedItem, json: [String: Any]) {
-        let item = FeedItem(id: id,
+                          imageURL: URL) -> (model: FeedImage, json: [String: Any]) {
+        let item = FeedImage(id: id,
                             description: description,
                             location: location,
-                            imageURL: imageURL)
+                            url: imageURL)
         let itemJSON = [
             "id": id.uuidString,
             "description": description,
