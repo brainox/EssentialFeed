@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct LocalFeedImage: Equatable {
+public struct LocalFeedImage: Equatable, Codable {
     /// A universally unique identifier (UUID) representing the item.
     public let id: UUID
     
