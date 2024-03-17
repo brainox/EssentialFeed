@@ -42,7 +42,7 @@ class CodableFeedStore: FeedStore {
         self.storeURL = storeURL
     }
     
-    func retrieve(completion: @escaping FeedStore.RetrievalCompletions) {
+    func retrieve(completion: @escaping RetrievalCompletions) {
         guard let data = try? Data(contentsOf: storeURL) else {
             completion(.empty)
             return
@@ -69,7 +69,7 @@ class CodableFeedStore: FeedStore {
         }
     }
     
-    func deleteCachedFeed(completion: @escaping FeedStore.DeletionCompletion) {
+    func deleteCachedFeed(completion: @escaping DeletionCompletion) {
         guard FileManager.default.fileExists(atPath: storeURL.path) else {
             return completion(nil)
         }
