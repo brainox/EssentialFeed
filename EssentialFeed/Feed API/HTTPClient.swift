@@ -38,8 +38,11 @@ public protocol HTTPClient {
     /**
      Performs an HTTP GET request to the specified URL asynchronously and provides the result via a completion closure.
      
+     The completion handler can be invoked in any thread.
+     Clients are responsible to dispatch to appropriate threads, if needed.
+     
      - Parameter url: The URL to which the GET request should be made.
-     - Parameter completion: A closure that takes an `HTTPClientResult` as its parameter.
+     - Parameter completion: A closure that takes an `HTTPClientResult` as its parameter. 
      - `HTTPClientResult`: The result of the HTTP GET request, either success or failure.
      
      Implementations of this method should make the HTTP GET request and call the `completion` closure when the request is complete.
