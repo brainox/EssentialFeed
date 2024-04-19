@@ -46,3 +46,4 @@ final class EssentialFeedCacheIntegrationTests: XCTestCase {
         return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
     }
 }
+
