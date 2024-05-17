@@ -7,24 +7,7 @@
 
 import Foundation
 
-/**
- An enumeration representing the result of loading a feed.
- 
- - `success`: Indicates a successful feed loading operation with an associated array of `FeedImage` instances.
- - `failure`: Indicates a failure in the feed loading operation with an associated `Error`.
- 
- Use this enumeration to convey the outcome of loading a feed in your application.
- 
- - Note: To handle the result of a feed loading operation, use the associated values of this enumeration.
- 
- */
-public enum LoadFeedResult {
-    /// Indicates a successful feed loading operation with an associated array of `FeedItem` instances.
-    case success([FeedImage])
-    
-    /// Indicates a failure in the feed loading operation with an associated `Error`.
-    case failure(Error)
-}
+public typealias LoadFeedResult = Result<[FeedImage], Error>
 
 /**
  A protocol defining the contract for a feed loader.
