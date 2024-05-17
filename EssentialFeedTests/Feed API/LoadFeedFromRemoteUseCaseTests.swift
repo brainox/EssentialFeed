@@ -182,14 +182,14 @@ class LoadFeedFromRemoteUseCaseTests: XCTestCase {
             "description": description,
             "location": location,
             "image": imageURL.absoluteString
-        ].reduce(into: [String: Any]()) { (acc, e) in
-            if let value = e.value {
-                acc[e.key] = value
-            }
-        }
-        // Note: We can also use `compactMapValues` to remove nil values in dictionary
+        ].compactMapValues { $0 }
+        // Note: We can also use the `reduce` method to remove nil values in dictionary
         /*        let itemJSON = [
-         ].compactMapValues { $0 }
+         ].reduce(into: [String: Any]()) { (acc, e) in
+             if let value = e.value {
+                 acc[e.key] = value
+             }
+         }
          
          return (item, itemJSON)
          */
