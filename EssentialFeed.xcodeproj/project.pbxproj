@@ -38,6 +38,7 @@
 		9B73B0562AABB15500B5F6B1 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73B0552AABB15500B5F6B1 /* URLSessionHTTPClientTests.swift */; };
 		9B86111E2A3BCCDB005AB45C /* LoadFeedFromRemoteUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86111D2A3BCCDB005AB45C /* LoadFeedFromRemoteUseCaseTests.swift */; };
 		9B8CDA572BFC630D0002CDC4 /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B8CDA4F2BFC630C0002CDC4 /* EssentialFeediOS.framework */; };
+		9B8CDA6A2BFE9BCB0002CDC4 /* FeedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8CDA692BFE9BCB0002CDC4 /* FeedViewControllerTests.swift */; };
 		9BCEA2FA2ABB4D1C008AF674 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6DE3032AB7CFAC002249DD /* XCTestCase+MemoryLeakTracking.swift */; };
 		9BCFE9A62BAAAB38005C4407 /* FeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCFE9A52BAAAB38005C4407 /* FeedStoreSpecs.swift */; };
 		9BCFE9A82BAAB412005C4407 /* XCTestCase+FeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCFE9A72BAAB412005C4407 /* XCTestCase+FeedStoreSpecs.swift */; };
@@ -116,6 +117,7 @@
 		9B8CDA4F2BFC630C0002CDC4 /* EssentialFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssentialFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B8CDA562BFC630D0002CDC4 /* EssentialFeediOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeediOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B8CDA642BFC63BB0002CDC4 /* EssentialFeediOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialFeediOS.xctestplan; sourceTree = "<group>"; };
+		9B8CDA692BFE9BCB0002CDC4 /* FeedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerTests.swift; sourceTree = "<group>"; };
 		9BCEA2F92ABB4C6F008AF674 /* EssentialFeedAPIEndToEndTest.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = EssentialFeedAPIEndToEndTest.xctestplan; sourceTree = "<group>"; };
 		9BCEA2FB2ABB66BE008AF674 /* CI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CI.xctestplan; sourceTree = "<group>"; };
 		9BCFE9A52BAAAB38005C4407 /* FeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStoreSpecs.swift; sourceTree = "<group>"; };
@@ -217,7 +219,7 @@
 				9B6DE37C2ABB49FE002249DD /* EssentialFeedAPIEndToEndTests */,
 				9B12A0B22BD2D189000ED3F8 /* EssentialFeedCacheIntegrationTests */,
 				9B8CDA502BFC630C0002CDC4 /* EssentialFeediOS */,
-				9B8CDA5A2BFC630D0002CDC4 /* EssentialFeediOSTests */,
+				9B8CDA682BFE9B990002CDC4 /* EssentialFeediOSTests */,
 				438C81812A2900250034089A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -327,9 +329,10 @@
 			path = EssentialFeediOS;
 			sourceTree = "<group>";
 		};
-		9B8CDA5A2BFC630D0002CDC4 /* EssentialFeediOSTests */ = {
+		9B8CDA682BFE9B990002CDC4 /* EssentialFeediOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				9B8CDA692BFE9BCB0002CDC4 /* FeedViewControllerTests.swift */,
 			);
 			path = EssentialFeediOSTests;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 					};
 					9B8CDA552BFC630D0002CDC4 = {
 						CreatedOnToolsVersion = 15.2;
+						LastSwiftMigration = 1520;
 					};
 				};
 			};
@@ -670,6 +674,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B8CDA6A2BFE9BCB0002CDC4 /* FeedViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1086,6 +1091,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6CJ98NSPAD;
@@ -1100,6 +1106,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1109,6 +1116,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6CJ98NSPAD;
