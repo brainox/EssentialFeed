@@ -10,6 +10,7 @@ import EssentialFeed
 
 final public class FeedViewController: UITableViewController {
     private var loader: FeedLoader?
+    private var tableModel = [FeedImage]()
     
     public convenience init(loader: FeedLoader) {
         self.init()
@@ -21,17 +22,34 @@ final public class FeedViewController: UITableViewController {
         
         refreshControl = FakeRefreshControl()
         refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
-    }
-    
-    public override func viewIsAppearing(_ animated: Bool) {
-        super.viewIsAppearing(animated)
         load()
     }
     
     @objc private func load() {
         refreshControl?.beginRefreshing()
-        loader?.load(completion: { [weak self] _ in
-            self?.refreshControl?.endRefreshing()
+        loader?.load(completion: { [weak self] result in
+            switch result {
+            case let .success(feed):
+                self?.tableModel = feed
+                self?.tableView.reloadData()
+                self?.refreshControl?.endRefreshing()
+                
+            case .failure: break
+            }
+           
         })
+    }
+    
+    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        tableModel.count
+    }
+    
+    public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellModel = tableModel[indexPath.row]
+        let cell = FeedImageCell()
+        cell.locationContainer.isHidden = (cellModel.location == nil)
+        cell.locationLabel.text = cellModel.location
+        cell.descriptionLabel.text = cellModel.description
+        return cell
     }
 }
